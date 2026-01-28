@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belle Étoile - Salon de Coiffure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #D4AF6A;
+            --secondary: #8B6F47;
+            --accent: #F5E6D3;
+            --rose: #E8B4B8;
+            --dark: #4A3F35;
+            --light: #FFF9F0;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--dark);
+            background: var(--light);
+            line-height: 1.7;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--accent) 0%, #FFF 50%, var(--rose) 100%);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '✨';
+            position: absolute;
+            font-size: 3em;
+            animation: sparkle 3s ease-in-out infinite;
+            top: 20%;
+            left: 15%;
+            opacity: 0.4;
+        }
+        
+        header::after {
+            content: '✂️';
+            position: absolute;
+            font-size: 2.5em;
+            animation: sparkle 4s ease-in-out infinite 1s;
+            bottom: 20%;
+            right: 15%;
+            opacity: 0.4;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translateY(-20px) scale(1.2);
+                opacity: 0.7;
+            }
+        }
+        
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5em;
+            font-weight: 300;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            letter-spacing: 3px;
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tagline {
+            font-size: 1.3em;
+            color: var(--primary);
+            font-weight: 400;
+            font-style: italic;
+            animation: fadeIn 1.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        section {
+            margin-bottom: 100px;
+        }
+        
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3em;
+            font-weight: 400;
+            color: var(--secondary);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            letter-spacing: 2px;
+        }
+        
+        h2::before,
+        h2::after {
+            content: '❀';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.6em;
+            color: var(--primary);
+        }
+        
+        h2::before {
+            left: 30%;
+        }
+        
+        h2::after {
+            right: 30%;
+        }
+        
+        .about {
+            background: white;
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(212, 175, 106, 0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, var(--rose) 0%, transparent 70%);
+            opacity: 0.1;
+        }
+        
+        .about p {
+            font-size: 1.2em;
+            line-height: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #666;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 50px 35px;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.5s ease;
+            border: 1px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--rose) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(212, 175, 106, 0.25);
+        }
+        
+        .service-icon {
+            font-size: 3.5em;
+            margin-bottom: 25px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7em;
+            font-weight: 400;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card p {
+            color: #777;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 80px 60px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: '✂️';
+            position: absolute;
+            font-size: 15em;
+            opacity: 0.08;
+            top: -30px;
+            left: -30px;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .contact h2 {
+            color: white;
+        }
+        
+        .contact h2::before,
+        .contact h2::after {
+            color: var(--accent);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-10px);
+        }
+        
+        .contact-item span:first-child {
+            font-size: 2.5em;
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item span:last-child {
+            font-size: 1.1em;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: var(--secondary);
+            color: var(--accent);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8em;
+            }
+            
+            h2 {
+                font-size: 2.2em;
+            }
+            
+            h2::before,
+            h2::after {
+                display: none;
+            }
+            
+            .about, .contact {
+                padding: 40px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Belle Étoile</h1>
+        <p class="tagline">L'art de sublimer votre style</p>
+    </header>
+    
+    <div class="container">
+        <section class="about">
+            <h2>À Propos</h2>
+            <p>
+                Bienvenue dans votre salon de coiffure d'exception. Notre équipe de coiffeurs passionnés 
+                et créatifs vous propose des coupes, colorations et coiffures personnalisées dans une 
+                atmosphère raffinée et conviviale. Nous utilisons des produits professionnels haut de gamme 
+                pour garantir la santé et la beauté de vos cheveux. Que ce soit pour une transformation 
+                complète ou un simple entretien, nous sommes à votre écoute pour créer le style qui vous ressemble.
+            </p>
+        </section>
+        
+        <section>
+            <h2>Nos Services</h2>
+            <div class="services">
+                <div class="service-card">
+                    <span class="service-icon">✂️</span>
+                    <h3>Coupe & Coiffage</h3>
+                    <p>Coupes femmes, hommes, enfants, coiffage brushing, mises en plis personnalisées</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🎨</span>
+                    <h3>Coloration</h3>
+                    <p>Couleurs, mèches, balayage, ombré, soins colorants végétaux et techniques modernes</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">👰</span>
+                    <h3>Coiffures Événements</h3>
+                    <p>Coiffures mariées, chignons, coiffures de soirée, mise en beauté pour occasions spéciales</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💆</span>
+                    <h3>Soins Capillaires</h3>
+                    <p>Soins profonds, keratin, botox capillaire, traitements réparateurs et hydratants</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🌊</span>
+                    <h3>Lissage & Permanente</h3>
+                    <p>Lissage brésilien, japonais, permanentes, défrisage, techniques de transformation</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">✨</span>
+                    <h3>Extensions & Perruques</h3>
+                    <p>Pose d'extensions naturelles, perruques sur mesure, rajouts de volume et longueur</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>04 67 XX XX XX</span>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>contact@belle-etoile.fr</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Centre-ville, Juvignac</span>
+                </div>
+                <div class="contact-item">
+                    <span>🕐</span>
+                    <span>Mar-Sam: 9h-19h</span>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Belle Étoile - Salon de Coiffure - Sur rendez-vous</p>
+    </footer>
+</body>
+</html>
