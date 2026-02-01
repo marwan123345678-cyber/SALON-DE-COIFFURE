@@ -3,76 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'Atelier Sublime | Coiffure Haute Couture Paris</title>
+    <title>L'Atelier Sublime | Coiffeur Créateur & Visagiste Paris</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --gold: #c5a059;
-            --dark: #121212;
-            --light: #fdfdfd;
-            --white: #ffffff;
-            --gray: #f4f4f4;
-        }
-
+        :root { --gold: #c5a059; --dark: #121212; --light: #fdfdfd; --white: #ffffff; --gray: #f4f4f4; }
         * { box-sizing: border-box; }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            color: #333;
-            scroll-behavior: smooth;
-        }
-
+        body { font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.6; color: #333; scroll-behavior: smooth; background: var(--white); }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
         /* Navigation */
-        nav {
-            background: rgba(18, 18, 18, 0.98);
-            padding: 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--gold);
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.8rem;
-            transition: color 0.3s;
-        }
-
+        nav { background: rgba(18, 18, 18, 0.98); padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gold); }
+        nav a { color: white; text-decoration: none; margin: 0 15px; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.8rem; transition: color 0.3s; }
         nav a:hover { color: var(--gold); }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-
-        .hero h1 { font-size: 3.5rem; letter-spacing: 5px; margin-bottom: 10px; }
-        .btn-gold {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--gold);
-            color: white;
-            text-decoration: none;
-            border-radius: 2px;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
+        /* Hero */
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1350&q=80');
+                background-size: cover; background-position: center; height: 80vh; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+        .hero h1 { font-size: clamp(2rem, 8vw, 4rem); letter-spacing: 5px; margin-bottom: 10px; }
+        .btn-gold { display: inline-block; padding: 15px 40px; background: var(--gold); color: white; text-decoration: none; border-radius: 2px; font-weight: 600; margin-top: 20px; transition: 0.3s; }
         .btn-gold:hover { background: #b08d4a; transform: translateY(-2px); }
 
         /* Sections */
@@ -80,93 +28,37 @@
         .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; text-transform: uppercase; }
         .section-title::after { content: ''; display: block; width: 50px; height: 2px; background: var(--gold); margin: 20px auto; }
 
-        /* Grille Tarifaire */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
+        /* Histoire */
+        .about-flex { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-img { flex: 1; min-width: 300px; height: 400px; background: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80') center/cover; border: 10px solid var(--gray); }
 
-        .pricing-category {
-            background: var(--white);
-            padding: 30px;
-            border: 1px solid #eee;
-            border-radius: 5px;
-        }
+        /* Tarifs */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .pricing-category { background: var(--white); padding: 30px; border: 1px solid #eee; border-radius: 5px; }
+        .pricing-category h3 { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; text-align: center; }
+        .price-item { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem; }
 
-        .pricing-category h3 {
-            color: var(--gold);
-            border-bottom: 1px solid var(--gold);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+        /* Contact Flottant Mobile */
+        .mobile-call { position: fixed; bottom: 20px; right: 20px; background: var(--gold); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999; font-size: 1.5rem; border: 2px solid white; }
 
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-
-        .price-item span:first-child { font-weight: 400; }
-        .price-item span:last-child { font-weight: 600; color: var(--dark); }
-
-        /* Avis */
-        .reviews { background: var(--gray); }
-        .review-card { background: white; padding: 30px; border-radius: 5px; text-align: center; font-style: italic; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-
-        /* Footer & Mentions */
-        footer { background: var(--dark); color: #999; padding: 80px 10% 20px; font-size: 0.85rem; }
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
+        /* Footer */
+        footer { background: var(--dark); color: #999; padding: 60px 10% 20px; font-size: 0.85rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px; }
         .footer-content h4 { color: white; text-transform: uppercase; margin-bottom: 20px; }
-        .footer-content p { margin: 5px 0; }
-        .footer-content a { color: var(--gold); text-decoration: none; }
-
-        .legal-section {
-            border-top: 1px solid #333;
-            padding-top: 30px;
-            text-align: center;
-        }
-
-        .legal-link { color: #555; text-decoration: underline; cursor: pointer; margin: 0 10px; }
-        
-        /* Modal Mentions Légales */
-        #legal-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 50px 20px;
-        }
-
-        .modal-content {
-            background: white;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
-            color: #333;
-            border-radius: 5px;
-            position: relative;
-        }
-
+        .legal-link { color: #555; text-decoration: underline; cursor: pointer; }
+        #legal-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; overflow-y: auto; padding: 50px 20px; }
+        .modal-content { background: white; max-width: 800px; margin: 0 auto; padding: 40px; color: #333; border-radius: 5px; position: relative; }
         .close-modal { position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; }
-
     </style>
 </head>
 <body>
 
+    <a href="tel:+33142611020" class="mobile-call">📞</a>
+
     <nav>
         <a href="#accueil">Accueil</a>
-        <a href="#services">Prestations</a>
+        <a href="#histoire">L'Atelier</a>
         <a href="#tarifs">Tarifs</a>
         <a href="#avis">Avis</a>
         <a href="#contact">Contact</a>
@@ -175,73 +67,53 @@
     <section class="hero" id="accueil" style="padding:0;">
         <div class="hero-content">
             <h1>L'ATELIER SUBLIME</h1>
-            <p>Coiffeur Visagiste & Coloriste Expert à Paris</p>
-            <a href="tel:+33142611020" class="btn-gold">PRENDRE RENDEZ-VOUS</a>
+            <p>L'excellence de la coiffure parisienne à votre portée</p>
+            <a href="tel:+33142611020" class="btn-gold">RÉSERVER VOTRE INSTANT</a>
         </div>
     </section>
 
-    <section id="services">
-        <h2 class="section-title">Notre Savoir-Faire</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center;">
-            <div>
-                <h3 style="color:var(--gold)">Visagisme</h3>
-                <p>Une étude morphologique pour une coupe qui révèle votre personnalité.</p>
+    <section id="histoire">
+        <div class="about-flex">
+            <div class="about-text">
+                <h2 style="font-size: 2.5rem; margin-top:0;">Notre Histoire</h2>
+                <p>Fondé en 2018 au cœur du 1er arrondissement de Paris, <strong>L'Atelier Sublime</strong> est né d'une passion : transformer chaque rendez-vous en une expérience de bien-être absolu.</p>
+                <p>Sous la direction créative de nos maîtres coiffeurs, nous allions techniques ancestrales et innovations capillaires de 2026. Notre mission est simple : révéler votre beauté naturelle tout en préservant la santé de votre chevelure avec des produits éco-responsables et haut de gamme.</p>
             </div>
-            <div>
-                <h3 style="color:var(--gold)">Balayage Signature</h3>
-                <p>Des nuances sur-mesure pour un effet soleil naturel et durable.</p>
-            </div>
-            <div>
-                <h3 style="color:var(--gold)">Soins Profonds</h3>
-                <p>Protocoles de reconstruction capillaire aux actifs naturels précieux.</p>
-            </div>
+            <div class="about-img"></div>
         </div>
     </section>
 
     <section id="tarifs" style="background: var(--gray);">
-        <h2 class="section-title">Carte des Tarifs</h2>
-        <p style="text-align:center; margin-top:-30px; margin-bottom:40px; font-style:italic;">Tous nos prix sont indiqués TTC (TVA 20% incluse) et service compris.</p>
-        
+        <h2 class="section-title">Carte des Tarifs 2026</h2>
         <div class="pricing-grid">
             <div class="pricing-category">
                 <h3>FEMME</h3>
-                <div class="price-item"><span>Shampoing + Coupe + Coiffage (Court)</span><span>52 €</span></div>
-                <div class="price-item"><span>Shampoing + Coupe + Coiffage (Mi-Long)</span><span>65 €</span></div>
-                <div class="price-item"><span>Shampoing + Coupe + Coiffage (Long)</span><span>78 €</span></div>
-                <div class="price-item"><span>Brushing Prestige</span><span>à partir de 35 €</span></div>
-                <div class="price-item"><span>Forfait Mariage (Essai inclus)</span><span>250 €</span></div>
+                <div class="price-item"><span>Coupe Transformation & Brushing</span><span>75 €</span></div>
+                <div class="price-item"><span>Balayage "Lumière de Paris"</span><span>à partir de 110 €</span></div>
+                <div class="price-item"><span>Soin Profond Rituel K</span><span>45 €</span></div>
+                <div class="price-item"><span>Patine & Gloss Éclat</span><span>40 €</span></div>
             </div>
-
             <div class="pricing-category">
                 <h3>HOMME</h3>
-                <div class="price-item"><span>Shampoing + Coupe + Coiffage</span><span>32 €</span></div>
-                <div class="price-item"><span>Coupe Tondeuse / Couronne</span><span>22 €</span></div>
-                <div class="price-item"><span>Taille de Barbe Sculptée</span><span>18 €</span></div>
-                <div class="price-item"><span>Couleur Homme "Cover 5"</span><span>25 €</span></div>
-                <div class="price-item"><span>Rituel Détente (Massage 10 min)</span><span>15 €</span></div>
+                <div class="price-item"><span>Coupe Signature Atelier</span><span>35 €</span></div>
+                <div class="price-item"><span>Taille de Barbe Traditionnelle</span><span>22 €</span></div>
+                <div class="price-item"><span>Rituel Shampoing Massant</span><span>12 €</span></div>
+                <div class="price-item"><span>Coloration "Effet Naturel"</span><span>30 €</span></div>
             </div>
-
-            <div class="pricing-category">
-                <h3>TECHNIQUE</h3>
-                <div class="price-item"><span>Coloration Racines (Sans ammoniaque)</span><span>55 €</span></div>
-                <div class="price-item"><span>Balayage / Ombré Hair</span><span>à partir de 95 €</span></div>
-                <div class="price-item"><span>Mèches Tête Entière</span><span>115 €</span></div>
-                <div class="price-item"><span>Patine / Gloss Éclat</span><span>35 €</span></div>
-                <div class="price-item"><span>Lissage Brésilien (sur devis)</span><span>à partir de 180 €</span></div>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 40px;">
-            <p><em>* Suppléments de 10€ à 20€ selon l'épaisseur et la longueur exceptionnelle.</em></p>
         </div>
     </section>
 
     <section id="avis">
-        <h2 class="section-title">Témoignages</h2>
+        <h2 class="section-title">Vos Expériences</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-            <div class="review-card">"Enfin un salon où l'on prend le temps. Mon balayage est sublime !" - <strong>Julie A.</strong></div>
-            <div class="review-card">"Accueil irréprochable et coupe homme très précise. Je reviendrai." - <strong>Thomas L.</strong></div>
-            <div class="review-card">"Le soin botox a sauvé mes cheveux. Merci à toute l'équipe." - <strong>Marine S.</strong></div>
+            <div style="background:white; padding:20px; border:1px solid #eee; text-align:center;">
+                <p>"Une expertise rare à Paris. Je ne confie mes cheveux à personne d'autre."</p>
+                <p><strong>- Emma B.</strong> ⭐⭐⭐⭐⭐</p>
+            </div>
+            <div style="background:white; padding:20px; border:1px solid #eee; text-align:center;">
+                <p>"L'accueil est royal et les conseils visagisme sont vraiment personnalisés."</p>
+                <p><strong>- Marc-Antoine P.</strong> ⭐⭐⭐⭐⭐</p>
+            </div>
         </div>
     </section>
 
@@ -254,33 +126,22 @@
                 <p>✉️ contact@l-ateliersublime.fr</p>
             </div>
             <div>
-                <h4>Horaires d'ouverture</h4>
-                <p>Mardi - Vendredi : 09h30 - 19h30</p>
-                <p>Samedi : 09h00 - 18h30</p>
-                <p>Dimanche & Lundi : Fermé</p>
-            </div>
-            <div>
-                <h4>Suivez-nous</h4>
-                <p><a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+                <h4>Horaires</h4>
+                <p>Mar - Ven : 09:30 - 19:30</p>
+                <p>Sam : 09:00 - 18:30</p>
             </div>
         </div>
-
-        <div class="legal-section">
-            <p>&copy; 2026 L'Atelier Sublime. Tous droits réservés.</p>
-            <p>
-                <span class="legal-link" onclick="toggleModal()">Mentions Légales & RGPD</span>
-            </p>
+        <div style="border-top: 1px solid #333; padding-top: 20px; text-align: center;">
+            <p>&copy; 2026 L'Atelier Sublime. <span class="legal-link" onclick="toggleModal()">Mentions Légales</span></p>
         </div>
     </footer>
 
     <div id="legal-modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleModal()">&times;</span>
-            <h2 style="color:var(--gold)">Mentions Légales</h2>
-            <p><strong>1. Éditeur du site :</strong> L'Atelier Sublime, Société par Actions Simplifiée (SAS) au capital de 5 000€. Siège social : 22 Rue de Rivoli, 75001 Paris. SIRET : 123 456 789 00012. Numéro TVA : FR 12 345678901.</p>
-            <p><strong>2. Hébergeur :</strong> GitHub Inc., 88 Colin P. Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
-            <p><strong>3. Protection des données (RGPD) :</strong> Conformément au Règlement Général sur la Protection des Données (RGPD) de 2026, aucune donnée personnelle n'est collectée sur ce site sans votre consentement. Pour toute demande d'accès ou de suppression : privacy@l-ateliersublime.fr.</p>
-            <p><strong>4. Médiation :</strong> Conformément aux articles L.616-1 et R.616-1 du code de la consommation, nous proposons un dispositif de médiation de la consommation (Médiateur de l'Artisanat).</p>
+            <h2 style="color:var(--gold)">Mentions Légales - Février 2026</h2>
+            <p><strong>Éditeur :</strong> L'Atelier Sublime SAS au capital de 5 000€. RCS Paris 123 456 789. TVA : FR123456789.</p>
+            <p><strong>Hébergement :</strong> GitHub Pages. <strong>Médiateur :</strong> CM2C (Médiation de la consommation).</p>
         </div>
     </div>
 
@@ -290,6 +151,5 @@
             modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
         }
     </script>
-
 </body>
 </html>
