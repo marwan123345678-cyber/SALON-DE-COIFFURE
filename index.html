@@ -3,417 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belle Étoile - Salon de Coiffure</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>L'Atelier Sublime | Coiffure Haute Couture Paris</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         :root {
-            --primary: #D4AF6A;
-            --secondary: #8B6F47;
-            --accent: #F5E6D3;
-            --rose: #E8B4B8;
-            --dark: #4A3F35;
-            --light: #FFF9F0;
+            --gold: #c5a059;
+            --dark: #121212;
+            --light: #fdfdfd;
+            --white: #ffffff;
+            --gray: #f4f4f4;
         }
-        
+
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Quicksand', sans-serif;
-            color: var(--dark);
-            background: var(--light);
-            line-height: 1.7;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
         }
-        
-        header {
-            background: linear-gradient(135deg, var(--accent) 0%, #FFF 50%, var(--rose) 100%);
-            padding: 120px 20px;
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Navigation */
+        nav {
+            background: rgba(18, 18, 18, 0.98);
+            padding: 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gold);
         }
-        
-        header::before {
-            content: '✨';
-            position: absolute;
-            font-size: 3em;
-            animation: sparkle 3s ease-in-out infinite;
-            top: 20%;
-            left: 15%;
-            opacity: 0.4;
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.8rem;
+            transition: color 0.3s;
         }
-        
-        header::after {
-            content: '✂️';
-            position: absolute;
-            font-size: 2.5em;
-            animation: sparkle 4s ease-in-out infinite 1s;
-            bottom: 20%;
-            right: 15%;
-            opacity: 0.4;
-        }
-        
-        @keyframes sparkle {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-                opacity: 0.4;
-            }
-            50% {
-                transform: translateY(-20px) scale(1.2);
-                opacity: 0.7;
-            }
-        }
-        
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4.5em;
-            font-weight: 300;
-            margin-bottom: 15px;
-            color: var(--secondary);
-            letter-spacing: 3px;
-            animation: fadeInUp 1.2s ease;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .tagline {
-            font-size: 1.3em;
-            color: var(--primary);
-            font-weight: 400;
-            font-style: italic;
-            animation: fadeIn 1.8s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-        
-        section {
-            margin-bottom: 100px;
-        }
-        
-        h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3em;
-            font-weight: 400;
-            color: var(--secondary);
-            margin-bottom: 50px;
+
+        nav a:hover { color: var(--gold); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             text-align: center;
-            position: relative;
-            letter-spacing: 2px;
         }
-        
-        h2::before,
-        h2::after {
-            content: '❀';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.6em;
-            color: var(--primary);
+
+        .hero h1 { font-size: 3.5rem; letter-spacing: 5px; margin-bottom: 10px; }
+        .btn-gold {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: 0.3s;
         }
-        
-        h2::before {
-            left: 30%;
-        }
-        
-        h2::after {
-            right: 30%;
-        }
-        
-        .about {
-            background: white;
-            padding: 60px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(212, 175, 106, 0.15);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .about::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, var(--rose) 0%, transparent 70%);
-            opacity: 0.1;
-        }
-        
-        .about p {
-            font-size: 1.2em;
-            line-height: 2;
-            max-width: 900px;
-            margin: 0 auto;
-            color: #666;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .services {
+        .btn-gold:hover { background: #b08d4a; transform: translateY(-2px); }
+
+        /* Sections */
+        section { padding: 100px 10%; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; text-transform: uppercase; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 2px; background: var(--gold); margin: 20px auto; }
+
+        /* Grille Tarifaire */
+        .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin-top: 50px;
         }
-        
-        .service-card {
-            background: white;
-            padding: 50px 35px;
-            border-radius: 25px;
-            text-align: center;
-            transition: all 0.5s ease;
-            border: 1px solid var(--accent);
-            position: relative;
-            overflow: hidden;
+
+        .pricing-category {
+            background: var(--white);
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 5px;
         }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--rose) 100%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        .service-card:hover::before {
-            opacity: 0.1;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 60px rgba(212, 175, 106, 0.25);
-        }
-        
-        .service-icon {
-            font-size: 3.5em;
-            margin-bottom: 25px;
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .service-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.7em;
-            font-weight: 400;
-            color: var(--secondary);
+
+        .pricing-category h3 {
+            color: var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
             margin-bottom: 20px;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
+            text-align: center;
         }
-        
-        .service-card p {
-            color: #777;
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
         }
-        
-        .contact {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            color: white;
-            padding: 80px 60px;
-            border-radius: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact::before {
-            content: '✂️';
-            position: absolute;
-            font-size: 15em;
-            opacity: 0.08;
-            top: -30px;
-            left: -30px;
-            animation: rotate 20s linear infinite;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .contact h2 {
-            color: white;
-        }
-        
-        .contact h2::before,
-        .contact h2::after {
-            color: var(--accent);
-        }
-        
-        .contact-grid {
+
+        .price-item span:first-child { font-weight: 400; }
+        .price-item span:last-child { font-weight: 600; color: var(--dark); }
+
+        /* Avis */
+        .reviews { background: var(--gray); }
+        .review-card { background: white; padding: 30px; border-radius: 5px; text-align: center; font-style: italic; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        /* Footer & Mentions */
+        footer { background: var(--dark); color: #999; padding: 80px 10% 20px; font-size: 0.85rem; }
+        .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
-            margin-top: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-content h4 { color: white; text-transform: uppercase; margin-bottom: 20px; }
+        .footer-content p { margin: 5px 0; }
+        .footer-content a { color: var(--gold); text-decoration: none; }
+
+        .legal-section {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        .legal-link { color: #555; text-decoration: underline; cursor: pointer; margin: 0 10px; }
+        
+        /* Modal Mentions Légales */
+        #legal-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 50px 20px;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            color: #333;
+            border-radius: 5px;
             position: relative;
-            z-index: 1;
         }
-        
-        .contact-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-10px);
-        }
-        
-        .contact-item span:first-child {
-            font-size: 2.5em;
-            display: block;
-            margin-bottom: 20px;
-        }
-        
-        .contact-item span:last-child {
-            font-size: 1.1em;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 50px;
-            background: var(--secondary);
-            color: var(--accent);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1em;
-            letter-spacing: 1px;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.8em;
-            }
-            
-            h2 {
-                font-size: 2.2em;
-            }
-            
-            h2::before,
-            h2::after {
-                display: none;
-            }
-            
-            .about, .contact {
-                padding: 40px 25px;
-            }
-        }
+
+        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; }
+
     </style>
 </head>
 <body>
-    <header>
-        <h1>Belle Étoile</h1>
-        <p class="tagline">L'art de sublimer votre style</p>
-    </header>
-    
-    <div class="container">
-        <section class="about">
-            <h2>À Propos</h2>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Prestations</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#avis">Avis</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="hero" id="accueil" style="padding:0;">
+        <div class="hero-content">
+            <h1>L'ATELIER SUBLIME</h1>
+            <p>Coiffeur Visagiste & Coloriste Expert à Paris</p>
+            <a href="tel:+33142611020" class="btn-gold">PRENDRE RENDEZ-VOUS</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title">Notre Savoir-Faire</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center;">
+            <div>
+                <h3 style="color:var(--gold)">Visagisme</h3>
+                <p>Une étude morphologique pour une coupe qui révèle votre personnalité.</p>
+            </div>
+            <div>
+                <h3 style="color:var(--gold)">Balayage Signature</h3>
+                <p>Des nuances sur-mesure pour un effet soleil naturel et durable.</p>
+            </div>
+            <div>
+                <h3 style="color:var(--gold)">Soins Profonds</h3>
+                <p>Protocoles de reconstruction capillaire aux actifs naturels précieux.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tarifs" style="background: var(--gray);">
+        <h2 class="section-title">Carte des Tarifs</h2>
+        <p style="text-align:center; margin-top:-30px; margin-bottom:40px; font-style:italic;">Tous nos prix sont indiqués TTC (TVA 20% incluse) et service compris.</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-category">
+                <h3>FEMME</h3>
+                <div class="price-item"><span>Shampoing + Coupe + Coiffage (Court)</span><span>52 €</span></div>
+                <div class="price-item"><span>Shampoing + Coupe + Coiffage (Mi-Long)</span><span>65 €</span></div>
+                <div class="price-item"><span>Shampoing + Coupe + Coiffage (Long)</span><span>78 €</span></div>
+                <div class="price-item"><span>Brushing Prestige</span><span>à partir de 35 €</span></div>
+                <div class="price-item"><span>Forfait Mariage (Essai inclus)</span><span>250 €</span></div>
+            </div>
+
+            <div class="pricing-category">
+                <h3>HOMME</h3>
+                <div class="price-item"><span>Shampoing + Coupe + Coiffage</span><span>32 €</span></div>
+                <div class="price-item"><span>Coupe Tondeuse / Couronne</span><span>22 €</span></div>
+                <div class="price-item"><span>Taille de Barbe Sculptée</span><span>18 €</span></div>
+                <div class="price-item"><span>Couleur Homme "Cover 5"</span><span>25 €</span></div>
+                <div class="price-item"><span>Rituel Détente (Massage 10 min)</span><span>15 €</span></div>
+            </div>
+
+            <div class="pricing-category">
+                <h3>TECHNIQUE</h3>
+                <div class="price-item"><span>Coloration Racines (Sans ammoniaque)</span><span>55 €</span></div>
+                <div class="price-item"><span>Balayage / Ombré Hair</span><span>à partir de 95 €</span></div>
+                <div class="price-item"><span>Mèches Tête Entière</span><span>115 €</span></div>
+                <div class="price-item"><span>Patine / Gloss Éclat</span><span>35 €</span></div>
+                <div class="price-item"><span>Lissage Brésilien (sur devis)</span><span>à partir de 180 €</span></div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <p><em>* Suppléments de 10€ à 20€ selon l'épaisseur et la longueur exceptionnelle.</em></p>
+        </div>
+    </section>
+
+    <section id="avis">
+        <h2 class="section-title">Témoignages</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <div class="review-card">"Enfin un salon où l'on prend le temps. Mon balayage est sublime !" - <strong>Julie A.</strong></div>
+            <div class="review-card">"Accueil irréprochable et coupe homme très précise. Je reviendrai." - <strong>Thomas L.</strong></div>
+            <div class="review-card">"Le soin botox a sauvé mes cheveux. Merci à toute l'équipe." - <strong>Marine S.</strong></div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div>
+                <h4>L'Atelier Sublime</h4>
+                <p>📍 22 Rue de Rivoli, 75001 Paris</p>
+                <p>📞 01 42 61 10 20</p>
+                <p>✉️ contact@l-ateliersublime.fr</p>
+            </div>
+            <div>
+                <h4>Horaires d'ouverture</h4>
+                <p>Mardi - Vendredi : 09h30 - 19h30</p>
+                <p>Samedi : 09h00 - 18h30</p>
+                <p>Dimanche & Lundi : Fermé</p>
+            </div>
+            <div>
+                <h4>Suivez-nous</h4>
+                <p><a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+            </div>
+        </div>
+
+        <div class="legal-section">
+            <p>&copy; 2026 L'Atelier Sublime. Tous droits réservés.</p>
             <p>
-                Bienvenue dans votre salon de coiffure d'exception. Notre équipe de coiffeurs passionnés 
-                et créatifs vous propose des coupes, colorations et coiffures personnalisées dans une 
-                atmosphère raffinée et conviviale. Nous utilisons des produits professionnels haut de gamme 
-                pour garantir la santé et la beauté de vos cheveux. Que ce soit pour une transformation 
-                complète ou un simple entretien, nous sommes à votre écoute pour créer le style qui vous ressemble.
+                <span class="legal-link" onclick="toggleModal()">Mentions Légales & RGPD</span>
             </p>
-        </section>
-        
-        <section>
-            <h2>Nos Services</h2>
-            <div class="services">
-                <div class="service-card">
-                    <span class="service-icon">✂️</span>
-                    <h3>Coupe & Coiffage</h3>
-                    <p>Coupes femmes, hommes, enfants, coiffage brushing, mises en plis personnalisées</p>
-                </div>
-                <div class="service-card">
-                    <span class="service-icon">🎨</span>
-                    <h3>Coloration</h3>
-                    <p>Couleurs, mèches, balayage, ombré, soins colorants végétaux et techniques modernes</p>
-                </div>
-                <div class="service-card">
-                    <span class="service-icon">👰</span>
-                    <h3>Coiffures Événements</h3>
-                    <p>Coiffures mariées, chignons, coiffures de soirée, mise en beauté pour occasions spéciales</p>
-                </div>
-                <div class="service-card">
-                    <span class="service-icon">💆</span>
-                    <h3>Soins Capillaires</h3>
-                    <p>Soins profonds, keratin, botox capillaire, traitements réparateurs et hydratants</p>
-                </div>
-                <div class="service-card">
-                    <span class="service-icon">🌊</span>
-                    <h3>Lissage & Permanente</h3>
-                    <p>Lissage brésilien, japonais, permanentes, défrisage, techniques de transformation</p>
-                </div>
-                <div class="service-card">
-                    <span class="service-icon">✨</span>
-                    <h3>Extensions & Perruques</h3>
-                    <p>Pose d'extensions naturelles, perruques sur mesure, rajouts de volume et longueur</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="contact">
-            <h2>Contact</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <span>📞</span>
-                    <span>04 67 XX XX XX</span>
-                </div>
-                <div class="contact-item">
-                    <span>📧</span>
-                    <span>contact@belle-etoile.fr</span>
-                </div>
-                <div class="contact-item">
-                    <span>📍</span>
-                    <span>Centre-ville, Juvignac</span>
-                </div>
-                <div class="contact-item">
-                    <span>🕐</span>
-                    <span>Mar-Sam: 9h-19h</span>
-                </div>
-            </div>
-        </section>
-    </div>
-    
-    <footer>
-        <p>&copy; 2026 Belle Étoile - Salon de Coiffure - Sur rendez-vous</p>
+        </div>
     </footer>
+
+    <div id="legal-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="toggleModal()">&times;</span>
+            <h2 style="color:var(--gold)">Mentions Légales</h2>
+            <p><strong>1. Éditeur du site :</strong> L'Atelier Sublime, Société par Actions Simplifiée (SAS) au capital de 5 000€. Siège social : 22 Rue de Rivoli, 75001 Paris. SIRET : 123 456 789 00012. Numéro TVA : FR 12 345678901.</p>
+            <p><strong>2. Hébergeur :</strong> GitHub Inc., 88 Colin P. Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
+            <p><strong>3. Protection des données (RGPD) :</strong> Conformément au Règlement Général sur la Protection des Données (RGPD) de 2026, aucune donnée personnelle n'est collectée sur ce site sans votre consentement. Pour toute demande d'accès ou de suppression : privacy@l-ateliersublime.fr.</p>
+            <p><strong>4. Médiation :</strong> Conformément aux articles L.616-1 et R.616-1 du code de la consommation, nous proposons un dispositif de médiation de la consommation (Médiateur de l'Artisanat).</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('legal-modal');
+            modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+
 </body>
 </html>
